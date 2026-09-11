@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Archivo', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  --color-ink: #0c0c0c;
+  --color-ink-soft: #1c1c1a;
+  --color-bone: #f2efe9;
+  --color-bone-dim: #e6e2d9;
+  --color-paper: #faf8f4;
+  --color-line: #2a2a26;
+  --color-line-light: #d8d3c7;
+  --color-accent: #c8481c;
+  --color-accent-soft: #e0603a;
+  --color-graphite: #6b6a63;
+}
+
+html, body {
+  background: var(--color-ink);
+  color: var(--color-bone);
+  overscroll-behavior: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-ink);
+}
+
+.font-display { font-family: var(--font-display); }
+.font-body { font-family: var(--font-body); }
+.font-mono { font-family: var(--font-mono); }
+
+/* thin scrollbar for control panel */
+.thin-scroll::-webkit-scrollbar { width: 3px; }
+.thin-scroll::-webkit-scrollbar-track { background: transparent; }
+.thin-scroll::-webkit-scrollbar-thumb { background: var(--color-line-light); }
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.15; }
+}
+.rec-dot { animation: blink 1.8s ease-in-out infinite; }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track { animation: marquee 22s linear infinite; }
